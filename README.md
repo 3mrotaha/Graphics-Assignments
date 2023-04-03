@@ -222,3 +222,110 @@ This code will fill a rectangle with the following parameters:
      - `height` of the rectangle: 50
      - `color` of the rectangle: red
 - XOR the red rectangle with the blue rectangle
+
+
+
+## Applet Utility Functions
+
+1. `getImage(URL imgURL, String imgString)` 
+This function is used to create an image object from the specified URL and image filename.
+
+**Parameters:**
+- `imgURL`: URL of the image file.
+- `imgString`: The filename of the image.
+
+## Examples:
+
+```java
+import java.awt.*;
+import java.applet.*;
+
+public class getImageExample extends Applet 
+{
+    private Image imgObject;
+
+    public void init() 
+    {
+        imgObject = getImage(getDocumentBase(), "example.jpg");
+    }
+
+    public void paint(Graphics g) 
+    {
+        g.drawImage(imgObject, 0, 0, this);
+    }
+}
+```
+
+In this example, the `getImage()` function is used to load the image "example.jpg" into an image object called `imgObject`.
+
+2. `getCodeBase()` 
+This function is used to get the URL of the directory containing the Applet class file.
+
+**Parameters**: None
+
+## Example:
+
+```java
+import java.applet.*;
+import java.awt.*;
+
+public class getCodeBaseExample extends Applet 
+{
+    public void paint(Graphics g) 
+    {
+        g.drawString("Code Base: " + getCodeBase(), 25, 50);
+    }
+}
+```
+
+In this example, the `getCodeBase()` function is used to get the URL of the directory that contains the `getCodeBaseExample` class file. The returned URL is then printed on the applet screen.
+
+3. `getDocumentBase()`
+This function is used to get the URL of the HTML document in which the applet is embedded.
+
+**Parameters**: None
+
+## Example:
+
+```java
+import java.applet.*;
+import java.awt.*;
+
+public class getDocumentBaseExample extends Applet 
+{
+    public void paint(Graphics g) 
+    {
+        g.drawString("Document Base: " + getDocumentBase(), 25, 50);
+    }
+}
+```
+
+In this example, the `getDocumentBase()` function is used to get the URL of the HTML document that contains the applet. The returned URL is then printed on the applet screen.
+
+4. `drawImage()` 
+This function is used to draw an image on the applet window.
+
+**Parameters**:
+- `img`: The image object to be drawn.
+- `x`: The x-coordinate of the top-left corner of the rectangle in which the image is to be drawn.
+- `y`: The y-coordinate of the top-left corner of the rectangle in which the image is to be drawn.
+- `observer`: An object that wants to be notified as the image is being loaded.
+
+## Example:
+
+```java
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.Image;
+
+public class DrawImageExample extends Applet 
+{
+    public void paint(Graphics g) 
+    {
+        Image img = getImage(getDocumentBase(),"example.jpg");
+        g.drawImage(img, 0, 0, this);
+    }
+}
+```
+
+In this example, the `getImage()` function is used to load the image "example.jpg" into an `Image` object called `img`. The `drawImage()` function is then used to draw this image at the top-left corner of the applet window.
